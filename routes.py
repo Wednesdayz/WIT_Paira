@@ -92,6 +92,16 @@ def who_are_we():
     """Who are we""" 
     return render_template("whoAreWe.html")
 
+@app.route('/guides')
+def guides():
+    """guides"""
+    return render_template("guides.html")
+
+@app.route('/experts')
+def experts():
+    """experts"""
+    return render_temaplte("experts.html")
+
 if __name__ == "__main__":
     # Change app.debug to False before launch
     app.debug = True
