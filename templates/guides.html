@@ -1,9 +1,42 @@
 {% extends 'base.html' %}
 
+{% block head %}<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>{% endblock %}
 {% block body %}
+<h1 style="text-align: center;">Guides</h1>
+<a href="/add" class="btn btn-primary">Create New Animal Guide</a></p>
+{% for gui in guides %}
+    {% if loop.first or loop.index0 is divisibleby(3) %}
+    
+    <!-- <div class="row"> -->
+    
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 proddiv">
+            <a href="/guides/{{ gui.guideNumber }}"><img src="/static/images/{{gui.photo}}"></a>
+            <h2 class="imageqty hidden">+</h2>
+            <h4>{{ gui.guideName }}</h4>
+            <div class="proddetails"><p>{{ gui.description}} <span class="spacerbull">&bull;</span> </div>
+        </div>
+    
+    {% elif loop.index0 % 3 == 1 %} 
+    
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 proddiv">
+        <a href="/guides/{{ gui.guideNumber }}"><img src="/static/images/{{gui.photo}}"></a>
+        <h2 class="imageqty hidden">+</h2>
+        <h4>{{ gui.guideName }}</h4>
+        <div class="proddetails"><p>{{ gui.description}} <span class="spacerbull">&bull;</span> </div>
+    </div>
+    
+    {% else %}
+    
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 proddiv">
+        <a href="/guides/{{ gui.guideNumber }}"><img src="/static/images/{{gui.photo}}"></a>
+        <h2 class="imageqty hidden">+</h2>
+        <h4>{{ gui.guidename }}</h4>
+        <div class="proddetails"><p>{{ gui.description}} <span class="spacerbull">&bull;</span> </div>
+    </div>
+    
+    {% endif %}
+    
+    {% endfor %}
 
-<h1>Guides</h1>
-<p>Animal guides</p> 
-
-
+    
 {% endblock %}

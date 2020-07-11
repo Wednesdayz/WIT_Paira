@@ -11,7 +11,7 @@ from models import *
 app = Flask(__name__)
 app.secret_key = 'paira'
 
-UPLOAD_FOLDER = os.path.join('static/img')
+UPLOAD_FOLDER = os.path.join('static/images')
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 app = Flask(__name__)
 app.secret_key = 'Bbklct321'
@@ -23,7 +23,7 @@ app.jinja_env.auto_reload = True
 def homepage():
     """Display Homepage"""
 
-    return render_template("homepage.html")
+    return render_template("emergency.html")
 
 @app.route('/register')
 def show_register():
@@ -93,15 +93,29 @@ def who_are_we():
     
     return render_template("whoAreWe.html")
 
-@app.route('/guides')
-def guides():
-    """guides"""
-    return render_template("guides.html")
+@app.route('/pickups.json')
+def get_pickups_json():
+    """Provide JSON for pickup locations"""
+
+    pickup_json = {"locations": {}, "ids": []}
+    pickups = Experts.query.filter(Experts.expert_id > 1).all()
+
+    for pickup in pickups:
+        pickup_json["locations"][pickup.firstName] = {"id": pickup.expert_id,
+                                                 "name": experts.firstName,
+                                                 "description": experts.lastName,
+                                                 "address": experts.location,
+                                                 "zipcode": experts.zipcode}
+        pickup_json["ids"].append(pickup.firstName)
+        print('hello')
+
+    return jsonify(**pickup_json)
 
 @app.route('/experts')
 def experts():
     """experts"""
-    return render_template("experts.html")
+    pickups = db.session.query(Experts).filter(Experts.expert_id > 1).all()
+    return render_template("experts.html", pickups=pickups)
 
 @app.route('/donate')
 def donate():
@@ -113,10 +127,47 @@ def emergency():
     """emergency"""
     return render_template("emergency.html")
 
-@app.route('/addGuide')
+@app.route('/guides')
+def guides():
+    """guides"""
+    g = db.session.query(Guides)
+    return render_template("guides.html", guides = g)
+
+@app.route('/guides/<int:guideNumber>')
+def show_guide_page(guideNumber):
+    """Query database for product info and display results"""
+    gui = Guides.query.get(guideNumber)
+    co = db.session.query(user).filter(user.userid == gui.userid).one()
+
+    return render_template("guide_page.html", guides = gui, con = co)
+
+@app.route('/add')
+def create():
+    """create new guide"""
+    if session.get('email'):
+        use = db.session.query(user).filter(user.email == session['email']).one()
+        return render_template("addGuide.html", user = use)
+    else:
+        flash('Please login')
+        return redirect('/')
+
+@app.route('/addGuide', methods=['GET', 'POST'])
 def add_guide():
-    """add guide"""
-    return render_template("add guide")
+    if request.method == 'POST':
+        f = request.files['file']
+        f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename)))
+        name = secure_filename(f.filename)
+
+    user_id = db.session.query(user).filter(user.email ==session['email']).one().userid
+    guide_name = request.form.get("guideName")
+    guide_description = request.form.get("description")
+    specie = request.form.get("species")
+    
+    new_guide = Guides(userid = user_id, guideName = guide_name, description = guide_description, species = specie, photo = name)
+    db.session.add(new_guide)
+    db.session.commit()
+    flash('New guide created')
+    return redirect("/guides")
 
 
 

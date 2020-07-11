@@ -24,3 +24,12 @@
   font-weight: bold;
   color: #000000;
 }
+
+#emergency_buttons{
+    text-align: center;
+}
+#emergency_buttons form{
+    display: inline;
+    text-align: center;
+
+}

@@ -1,29 +1,24 @@
-
 {% extends 'base.html' %}
 
+
 {% block body %}
-
-<div class="row">
-
-<div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
-        <img src="/static/img/jamie-hamel-smith-1200-v2.jpg" class="register_img">
+<div class="container">
+    <div style="text-align:center">
+    <div class="row">
+            <h1>New Project</h1>
+                <form action="/addGuide" id="create_guide_form" method="POST"
+                    enctype = "multipart/form-data">
+                    <label for="file">Upload Image:</label><br></br>
+                    <input type = "file" name = "file" style="margin: 0 auto"/><br></br>
+                    <label for="guideName">Guide Name:</label><br></br>
+                    <input type="text" name="guideName" id="guideName" required><br></br>
+                    <label for="description">Description</label><br></br>
+                    <textarea id="description" name="description" placeholder="write something.." style="height:170pxt"></textarea><br></br>
+                    <label for="species">Species:</label>
+                    <input type="text" id="species" name="species"><br></br>
+                    <input type="submit" value="Create">  
+                </form>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-5">
-        <h1>Add New Animal Guide</h1>
-        
-        <form action="/addNewGuide" id="new_guide_form" method="POST">
-            <label for="firstName">First Name:</label>
-            <input type="text" name="firstName" id="firstName" required><br>
-            <label for="lastName">Last Name:</label>
-            <input type="text" name="lastName" id="lastName" required><br>
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required><br>
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password" required><br>
-            <input type="submit" value="register">  
-        </form>
     </div>
-
 </div>
-
 {% endblock %}

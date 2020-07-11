@@ -20,11 +20,14 @@ class animals(db.Model):
     photo = db.Column(db.String(300), nullable=False)
     guide = db.Column(db.String(1500), nullable=False) 
 
-class guides(db.Model):
+class Guides(db.Model):
     """animal guide"""
-    guideNumber = db.Column(db.String(100), nullable = False, primary_key = True)
+    __tablename__ = 'guides'
+    userid = db.Column(db.Integer, nullable=False, unique=True)
+    guideName = db.Column(db.String(100), nullable = False)
+    guideNumber = db.Column(db.Integer, autoincrement=True, nullable=False, primary_key=True)
     description = db.Column(db.String(5000), nullable = False)
-    species = db.Column(db.String(100), nullable = False, primary_key = True)
+    species = db.Column(db.String(100), nullable = False)
     photo = db.Column(db.String(200), nullable = False)
 
 
@@ -38,7 +41,7 @@ class guides(db.Model):
 #    injury 
 #    location
 
-class experts(db.Model):
+class Experts(db.Model):
     """List of experts""" 
     __tablename__ = 'experts'
     expert_id = db.Column(db.Integer, autoincrement=True, nullable = False, primary_key=True)
@@ -47,6 +50,8 @@ class experts(db.Model):
     animals = db.Column(db.String(100), db.ForeignKey("animals.species"), nullable=True)
     email = db.Column(db.String(100), nullable=False, unique=True)
     password = db.Column(db.String(500), nullable=False)
+    location = db.Column(db.String(500), nullable=False)
+    zipcode = db.Column(db.String(500), nullable=False)
 
 class user(db.Model):
     """List of users"""

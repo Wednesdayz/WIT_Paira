@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
 {% block body %}
 <div id="emergency_body">
-<h1 id="transbox" style='text-align: center; top: 50%; margin-top:300px;color:black; font-weight: bold; font-size: 60px;'> Looking to help out? </h1>
+<h1 id="transbox" style='text-align: center; top: 50%; margin-top:300px;color:black; font-weight: bold; font-size: 60px; '> Looking to help out? </h1>
+<div id="emergency_buttons">
+<form style="margin:100px;" action="/donate">
+    <input style = "height:75px; width:200px; border-radius: 40px; -moz-border-radius: 20px; border-color:#FF9D00; background: #FF9D00" type="submit" value="Report an Animal" />
+</form>
 
+<form style="margin:100px;" action="/donate">
+    <input style = "height:75px; width:200px; border-radius: 40px; -moz-border-radius: 20px;border-color:#FF9D00; background: #FF9D00" type="submit" value="Make a donation" />
+</form>
+</div>
 </div>
 {% endblock %}
