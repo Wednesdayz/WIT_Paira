@@ -1,0 +1,14 @@
+#emergency_body {
+    background-image: url("../images/theKangaroo.jpg");
+  /* Set rules to fill background */
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    top: 50px;  
+    left: 0px;
+        
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+    
+   }

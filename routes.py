@@ -90,6 +90,7 @@ def process_login():
 @app.route('/whoAreWe')
 def who_are_we():
     """Who are we""" 
+    
     return render_template("whoAreWe.html")
 
 @app.route('/guides')

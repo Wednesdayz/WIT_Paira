@@ -1,0 +1,154 @@
+/* Typography styles */
+
+h1 {
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    /*color: #007a08;*/
+}
+
+/* Nav styles */
+
+
+.navbar {
+    margin-bottom: 10px;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color:#e7e7e7;
+}
+
+.navbar-default {
+    background-color: #151722; /*#f8f8f8;*/
+    /*color: #0f400f; 1d730e*/
+}
+
+.navbar-default, .navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand, #prod-search {
+    color: #FF9D00;
+}
+
+.logotext {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5em;
+    color: #007a08; /*114711*/ /*008c1a*/
+}
+
+body {
+    font-family: 'Droid Serif', serif;
+}
+
+/* All Product Page */
+
+.proddiv {
+    font-family: 'Droid Serif', serif;
+}
+
+.proddiv h4 {
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    color: #777;
+    text-align: center;
+}
+
+.proddiv img {
+    width: 380px;
+    margin: auto;
+    display: block;
+    position: relative;
+}
+
+@keyframes showqty {
+    0% {color: white;}
+    100% {color: #007a08;}
+}
+
+.imageqty {
+    position: absolute;
+    top: 50px; 
+    left: 180px; 
+    width: 100%;
+    font-family: 'Droid Serif', serif;
+    font-size: 100px;
+    animation-name: showqty;
+    animation-duration: 3s;
+}
+
+.hidden {
+    visibility:hidden;
+}
+
+.spacerbull {
+    padding:4px;
+}
+
+.proddetails {
+    text-align: center;
+}
+
+.proddetails p {
+    margin: 0 2px;
+}
+
+/*.filters div*/
+.pill {
+    display:inline-block;
+    border: 1px solid #A2A2A2;
+    border-radius: 35px;
+    padding:5px;
+    margin-bottom: 5px;
+}
+
+.filters .pill {
+    cursor: pointer;
+}
+
+.filters .on {
+    background-color: #57BF7B;
+    border: none;
+}
+
+.showfilters, .hidefilters {
+    cursor: pointer;
+}
+
+/* Search Page */
+
+.backtoall {
+    margin: auto;
+    width: 20px;
+}
+
+/* Register Page */
+.register_img {
+    max-width:500px;
+    display:block;
+    padding:4px;
+}
+
+#register_form label {
+    width:80px;
+}
+
+/* Cart Page */
+
+input[type=checkbox], input[type=radio] {
+    padding-right: 2px;
+    margin-right: 5px;
+}
+
+
+.centerme {
+    text-align: center;
+}
+
+/* Account Page */
+
+.spacer {
+    margin-top: 20px;
+}
+
+/* Locations Page */
+
+#map {
+        width: 100%;
+        height: 400px;
+      }
