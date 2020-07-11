@@ -12,3 +12,15 @@
     min-height: 100%;
     
    }
+
+#transbox {
+  margin: 80px;
+  background-color: #FF9D00;
+  opacity: 0.5;
+}
+
+#transbox p {
+  margin: 50%;
+  font-weight: bold;
+  color: #000000;
+}
