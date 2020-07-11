@@ -117,6 +117,8 @@ def add_guide():
     """add guide"""
     return render_template("add guide")
 
+
+
 if __name__ == "__main__":
     # Change app.debug to False before launch
     app.debug = True
