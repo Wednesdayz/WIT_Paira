@@ -26,7 +26,6 @@ dask==0.18.2
 decorator==4.3.0
 Deprecated==1.2.7
 deprecation==2.0.7
-Django==3.0.dev20190311143959
 docopt==0.6.2
 docutils==0.15.2
 ffmpeg-python==0.1.17
@@ -141,7 +140,6 @@ sqlparse==0.3.0
 sseclient==0.0.25
 stripe==2.35.1
 tensorboard==1.12.2
-tensorflow @ https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.12.0-py3-none-any.whl
 termcolor==1.1.0
 tifffile==2020.5.11
 tqdm==4.46.0
