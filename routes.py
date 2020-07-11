@@ -13,7 +13,7 @@ app.secret_key = 'paira'
 @app.route('/')
 def homepage():
     """Display Homepage"""
-    
+        
     return render_template("homepage.html")
 
 
