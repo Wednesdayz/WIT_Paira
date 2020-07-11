@@ -8,17 +8,17 @@ from datetime import datetime, timezone
 
 db = SQLAlchemy()
 app = Flask(__name__)
-app.secret_key 'Paira'
+app.secret_key = 'Paira'
 
 class animals(db.Model):
     """animal""" 
-    __table__ = 'animals'
+    __tablename__ = 'animals'
 
     species = db.Column(db.String(100), nullable = False, primary_key = True)
     temperament = db.Column(db.String(100),  nullable=True) 
     age = db.Column(db.String(100), nullable=False)
     photo = db.Column(db.String(300), nullable=False)
-    guide = db.Column(db.String(1500), nullable=False)  
+    guide = db.Column(db.String(1500), nullable=False) 
 
 #class cases(db.Model):
 #    """List of cases""" 
@@ -32,27 +32,31 @@ class animals(db.Model):
 
 class experts(db.Model):
     """List of experts""" 
-    __table__ = 'experts'
-    expert_id = db.Column(db.String(100), nullable = False, primary_key=True)
+    __tablename__ = 'experts'
+    expert_id = db.Column(db.Integer, autoincrement=True, nullable = False, primary_key=True)
     firstName = db.Column(db.String(100), nullable = False)
     lastName = db.Column(db.String(100), nullable = False)
-    animal = db.relationship("animals", backref = 'experts')
+    animals = db.Column(db.String(100), db.ForeignKey("animals.species"), nullable=True)
     email = db.Column(db.String(100), nullable=False, unique=True)
     password = db.Column(db.String(500), nullable=False)
 
 class user(db.Model):
     """List of users"""
-    
+    __tablename__ = 'user'
+
     email = db.Column(db.String(100), nullable=False, unique=True)
-    userid = db.Column(db.String(100), nullable=False, unique=True)
+    userid = db.Column(db.Integer, nullable=False, unique=True, autoincrement = True, primary_key = True)
     password = db.Column(db.String(500), nullable=False)
+    firstName = db.Column(db.String(100), nullable=False)
+    lastName = db.Column(db.String(100), nullable=False)
 
 class visitor(db.Model):
-    userid = db.Column(db.String(100), nullable=False, unique=True)
+    __tablename__ = 'visitor'
+    userid = db.Column(db.Integer, autoincrement=True , unique=True, primary_key = True)
     
 
 
-def connect_to_db(app, database='postgresql://postgres:'):
+def connect_to_db(app, database='postgresql://postgres:Bbklct321@localhost:5432/postgres'):
     """Connect the database to flask app"""
     app.config['SQLALCHEMY_DATABASE_URI'] = database
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
