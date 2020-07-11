@@ -100,7 +100,17 @@ def guides():
 @app.route('/experts')
 def experts():
     """experts"""
-    return render_temaplte("experts.html")
+    return render_template("experts.html")
+
+@app.route('/donate')
+def donate():
+    """donation"""
+    return render_template("donateNow.html")
+
+@app.route('/emergency')
+def emergency():
+    """emergency"""
+    return render_template("emergency.html")
 
 if __name__ == "__main__":
     # Change app.debug to False before launch
