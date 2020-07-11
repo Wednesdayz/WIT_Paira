@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="row">
+
+<div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+        <img src="/static/img/jamie-hamel-smith-1200-v2.jpg" class="register_img">
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-5">
+        <h1>Add New Animal Guide</h1>
+        
+        <form action="/addNewGuide" id="new_guide_form" method="POST">
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName" id="firstName" required><br>
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="lastName" id="lastName" required><br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required><br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required><br>
+            <input type="submit" value="register">  
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

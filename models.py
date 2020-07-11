@@ -20,6 +20,14 @@ class animals(db.Model):
     photo = db.Column(db.String(300), nullable=False)
     guide = db.Column(db.String(1500), nullable=False) 
 
+class guides(db.Model):
+    """animal guide"""
+    guideNumber = db.Column(db.String(100), nullable = False, primary_key = True)
+    description = db.Column(db.String(5000), nullable = False)
+    species = db.Column(db.String(100), nullable = False, primary_key = True)
+    photo = db.Column(db.String(200), nullable = False)
+
+
 #class cases(db.Model):
 #    """List of cases""" 
 #    animal name 
