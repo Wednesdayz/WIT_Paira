@@ -32,15 +32,11 @@
     <p>He should be arriving in 20mins.</p>
 </div>
 <script>
-    
-    function chnagePage() {
-        setTimeout(() => {
-            document.getElementById("locationLoading").style.display = "none";
-            document.getElementById("displayText").style.dispaly="block";
-        }, 1000)
+    window.setTimeout(changePage, 2000);
+    function changePage() {
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("displayText").style.display="block";
     }
-
-
 </script>
 
 {% endblock %}

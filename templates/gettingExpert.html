@@ -18,7 +18,7 @@
         width: 12px;
         height: 12px;
         animation: spin 2s linear infinite;
-        }
+    }
 
         @keyframes spin {
         0% { transform: rotate(0deg); }
@@ -38,7 +38,10 @@
     <label for="location">Whereabouts are you?</label>
     <input id="location" type="text">
     <button type="button" onclick="updateLocation()">Get your location</button>
-    <div id="locationLoading" class="loader" style="display: none;"></div>
+    <div id="locationLoading" style="display: none;">
+        <label for="loading" style="display: inline;">Getting your location...</label>
+        <div id="loading"  class="loader"></div>
+    </div>
     <br />
     <br />
 
