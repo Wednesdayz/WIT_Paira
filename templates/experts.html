@@ -68,6 +68,9 @@
                 marker.addListener('mouseout', function() {
                     infowindow.close(pickupsMap, marker);
                 });
+                marker.addListener('click', function(){
+                    window.location.href = './getExpert';
+                });
             } else {
                 console.log('Geocode was not successful for the following reason: ' + status);
             }
