@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<script>
+    function updateLocation() {
+        document.getElementById("locationLoading").style.display = "block";
+        setTimeout(() => {
+            document.getElementById("location").value = "123 Smith St, Smallville";
+            document.getElementById("locationLoading").style.display = "none";
+        }, 2000)
+    }
+</script>
+<style>
+    .loader {
+    border: 16px solid #151722; /* Light grey */
+    border-top: 16px solid #FF9D00; /* Blue */
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+</style>
+
+<h1>Injury Report</h1>
+<form>
+    <label for="animalInput">Animal: </label>
+    <input id="animalInput" type="text">
+    <br />
+    <br />
+    <label for="photoUpload">Upload a photo to help our experts identify the issue: </label>
+    <input id="photoUpload" type="file">
+    <br />
+    <br />
+    <label for="location">Whereabouts are you?</label>
+    <input id="location" type="text">
+    <button type="button" onclick="updateLocation()">Get your location</button>
+    <div id="locationLoading" class="loader" style="display: none;"></div>
+    <br />
+    <br />
+
+    <label for="ageSelect">Roughly how old does it look?</label>
+    <select id="ageSelect">
+        <option value="baby">Baby</option> 
+        <option value="midaged">Adult</option>
+        <option value="elderly">Elderly</option>
+        <option value="unsure">Unsure</option>
+    </select>
+    <br />
+    <br />
+
+    <submit>Submit report</submit>
+
+
+</form>
+{% endblock %}
