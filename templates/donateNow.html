@@ -1,9 +1,36 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<div id="donateNow_body">
+<h1 id="transbox" style='text-align: center; top: 50%; margin-top:300px;color:black; font-weight: bold; font-size: 60px; '>Donate Now</h1>
+<p style='text-align: center;'></p>
 
-<h1>Donate Now</h1>
-<p>Empty Thou pocket of all worldly possessions</p> 
+<div class="donateNow_container">
+  <div id="donateNow_select">
+    <label class="donateNow_label for="amount">Select Amount</label>
+    <select class="amount" name="amount">
+      <option value="100">$100</option>
+      <option value="50">$50</option>
+      <option value="25">$25</option>
+      <option value="10">$10</option>
+      <option value="5">$5</option>
+    </select>
+    <label class="donateNow_label for="amount">Select Charity</label>
+    <select class="amount" name="amount">
+      <option value="WWF">WWF</option>
+      <option value="RSPCA">RSPCA</option>
+      <option value="FOUR PAWS">FOUR PAWS</option>
+    </select>
+  </div>
+  <div id="donateNow_buttons">
+    <form action="/donate">
+        <input style = "height:75px; width:200px; border-radius: 40px; -moz-border-radius: 20px; border-color:#FF9D00; background: #FF9D00" type="submit" value="Donate Now" />
+    </form>
+    <form  action="/donate">
+        <input style = "height:75px; width:200px; border-radius: 40px; -moz-border-radius: 20px; border-color:#FF9D00; background: #FF9D00" type="submit" value="Create Iniative" />
+    </form>
+  </div>
+</div>
 
 
 {% endblock %}

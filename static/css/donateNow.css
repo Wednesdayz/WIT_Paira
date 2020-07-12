@@ -1,0 +1,42 @@
+#donateNow_body {
+  background-image: url("../images/platypus.jpg");
+/* Set rules to fill background */
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 50px;
+  left: 0px;
+
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.donateNow_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 5vh;
+}
+
+#donateNow_select {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 5vh;
+}
+
+#donateNow_buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 5vh;
+}
+
+.donateNow_label {
+  font-size: 2em;
+  color: white;
+}
