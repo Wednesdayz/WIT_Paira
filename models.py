@@ -18,7 +18,7 @@ class animals(db.Model):
     temperament = db.Column(db.String(100),  nullable=True) 
     age = db.Column(db.String(100), nullable=False)
     photo = db.Column(db.String(300), nullable=False)
-    guide = db.Column(db.String(1500), nullable=False) 
+    guide = db.Column(db.String(1500), nullable=True) 
 
 class Guides(db.Model):
     """animal guide"""
@@ -77,9 +77,23 @@ def connect_to_db(app, database='postgresql://postgres:Bbklct321@localhost:5432/
     db.app = app
     db.init_app(app)
 
+def populate_db():
+
+    animal1 = animals(species = "quokka", temperament = "happy", age = "young", photo ="./static/images/thequokka.jpg")
+    animal2 = animals(species = "cats", temperament = "fluffy", age ="old", photo = "./static/images/theKoala.png")
+    expert1 = Experts(expert_id = 1, firstName = "John", lastName = "Smith", animals = "quokka", email = "james@hotmail.com", password = "holo", location = "161 Sussex St, Sydney", zipcode = "2001")
+    expert2 = Experts(expert_id = 2, firstName = "Smith", lastName = "John", animals = "cats", email = "smith@hotmail.com", password = "hoolo", location = "14 The Avenue, North Sydney", zipcode = "2060" )
+    db.session.add(animal1)
+    db.session.add(animal2)
+    db.session.commit()
+    db.session.add(expert1)
+    db.session.add(expert2)
+    db.session.commit()
+
 if __name__ == "__main__":
     # As a convenience, if we run this module interactively, it will leave
     # you in a state of being able to work with the database directly.
     connect_to_db(app)
     db.create_all()
+    populate_db()
     print("Connected to DB.")

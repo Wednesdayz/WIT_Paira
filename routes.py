@@ -102,19 +102,18 @@ def get_pickups_json():
 
     for pickup in pickups:
         pickup_json["locations"][pickup.firstName] = {"id": pickup.expert_id,
-                                                 "name": experts.firstName,
-                                                 "description": experts.lastName,
-                                                 "address": experts.location,
-                                                 "zipcode": experts.zipcode}
+                                                 "name": pickup.firstName,
+                                                 "description": pickup.animals,
+                                                 "address": pickup.location,
+                                                 "zipcode": pickup.zipcode}
         pickup_json["ids"].append(pickup.firstName)
-        print('hello')
 
     return jsonify(**pickup_json)
 
 @app.route('/experts')
 def experts():
     """experts"""
-    pickups = db.session.query(Experts).filter(Experts.expert_id > 1).all()
+    pickups = db.session.query(Experts).filter(Experts.expert_id > 0).all()
     return render_template("experts.html", pickups=pickups)
 
 @app.route('/donate')
