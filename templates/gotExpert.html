@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<script>
+    setTimeout(() => {
+        document.getElementById("location").value = "123 Smith St, Smallville";
+        document.getElementById("locationLoading").style.display = "none";
+    }, 2000)
+</script>
+<div id="loading">
+    <div id="loadingGraphic" class="loader" style="display: block;"></div>
+    <div>We're looking for the nearest expert</div>
+
+</div>
+
+
+<div id="displayText">
+    <h1>Thank you for reporting!</h1>
+</div>
+
+{% endblock %}
