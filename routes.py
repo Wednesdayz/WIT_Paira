@@ -168,6 +168,14 @@ def add_guide():
     flash('New guide created')
     return redirect("/guides")
 
+@app.route('/getExpert', methods=['GET'])
+def get_expert():
+    return render_template("gettingExpert.html")
+
+@app.route('gotExpert', methods=['GET'])
+def got_expert():
+    return render_template("gotExpert.html")
+
 
 
 if __name__ == "__main__":
