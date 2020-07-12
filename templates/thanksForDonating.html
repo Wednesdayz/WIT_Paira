@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<style>
+    .loader {
+        border: 16px solid #151722; /* Light grey */
+        border-top: 16px solid #FF9D00; /* Blue */
+        border-radius: 50%;
+        width: 240px;
+        height: 240px;
+        animation: spin 2s linear infinite;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
+<div id="loading" style="text-align: center;">
+    <h2 id="lodaingHeading">Authorising Payment</h2>
+    <div id="loadingGraphic" class="loader"></div>
+
+</div>
+
+
+<div id="displayText" style="display: none;">
+    <h1>Thank you for donating!</h1>
+    <p>Your donation will go a long way to helping animals in need</p>
+</div>
+<script>
+    window.setTimeout(function(){ 
+        document.getElementById("loadingHeading").innerText = "Making payment"
+     }, 500);
+
+    window.setTimeout(() => {
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("displayText").style.display="block";
+    }, 2000);
+</script>
+
+{% endblock %}
