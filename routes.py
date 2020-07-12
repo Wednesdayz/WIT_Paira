@@ -177,6 +177,10 @@ def get_expert():
 def got_expert():
     return render_template("gotExpert.html")
 
+@app.route('/thanksForDonating', methods=['GET'])
+def thanks_for_donating():
+    return render_template("thanksForDonating.html")
+
 
 
 if __name__ == "__main__":

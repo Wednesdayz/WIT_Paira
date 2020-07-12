@@ -4,11 +4,11 @@
 <style>
     .loader {
         border: 40px solid #151722; 
-        border-top: 40px solid #FF9D00;
+        border-top: 40px solid #FF9D00; 
         border-radius: 50%;
         width: 240px;
         height: 240px;
-        animation: spin 6s linear infinite;
+        animation: spin 5s linear infinite;
         margin-left: auto;
         margin-right: auto;
     }
@@ -20,23 +20,25 @@
 </style>
 
 <div id="loading" style="text-align: center;">
-    <h2>We're looking for the nearest expert. Please wait a moment</h2>
+    <h2 id="lodaingHeading">Authorising Payment</h2>
     <div id="loadingGraphic" class="loader"></div>
 
 </div>
 
 
 <div id="displayText" style="text-align: center; display: none;">
-    <h1>Thank you for reporting!</h1>
-    <p>We've sent Dr. John Smith, an expert with 12 years of experience in Quokkas.</p>
-    <p>He should be arriving in 20mins.</p>
+    <h1>Thank you for donating!</h1>
+    <p>Your donation will go a long way to helping animals in need</p>
 </div>
 <script>
-    window.setTimeout(changePage, 2000);
-    function changePage() {
+    window.setTimeout(function(){ 
+        document.getElementById("loadingHeading").innerText = "Making payment"
+     }, 500);
+
+    window.setTimeout(() => {
         document.getElementById("loading").style.display = "none";
         document.getElementById("displayText").style.display="block";
-    }
+    }, 2000);
 </script>
 
 {% endblock %}
