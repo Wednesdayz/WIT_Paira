@@ -23,7 +23,7 @@ class animals(db.Model):
 class Guides(db.Model):
     """animal guide"""
     __tablename__ = 'guides'
-    userid = db.Column(db.Integer, nullable=False, unique=True)
+    userid = db.Column(db.Integer, nullable=False)
     guideName = db.Column(db.String(100), nullable = False)
     guideNumber = db.Column(db.Integer, autoincrement=True, nullable=False, primary_key=True)
     description = db.Column(db.String(5000), nullable = False)
@@ -83,11 +83,14 @@ def populate_db():
     animal2 = animals(species = "cats", temperament = "fluffy", age ="old", photo = "./static/images/theKoala.png")
     expert1 = Experts(expert_id = 1, firstName = "John", lastName = "Smith", animals = "quokka", email = "james@hotmail.com", password = "holo", location = "161 Sussex St, Sydney", zipcode = "2001")
     expert2 = Experts(expert_id = 2, firstName = "Smith", lastName = "John", animals = "cats", email = "smith@hotmail.com", password = "hoolo", location = "14 The Avenue, North Sydney", zipcode = "2060" )
+    expert3 = Experts(expert_id = 3, firstName = "Johnny", lastName = "Sins", animals = "cats", email = "Johnnysins@hotmail.com", password = "hooo", location = "33 Macquarie St, Sydney, NSW", zipcode = "2000" )
+
     db.session.add(animal1)
     db.session.add(animal2)
     db.session.commit()
     db.session.add(expert1)
     db.session.add(expert2)
+    db.session.add(expert3)
     db.session.commit()
 
 if __name__ == "__main__":

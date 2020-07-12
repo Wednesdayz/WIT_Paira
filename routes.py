@@ -148,7 +148,8 @@ def create():
         return render_template("addGuide.html", user = use)
     else:
         flash('Please login')
-        return redirect('/')
+        g = db.session.query(Guides)
+        return render_template("guides.html", guides = g)
 
 @app.route('/addGuide', methods=['GET', 'POST'])
 def add_guide():
