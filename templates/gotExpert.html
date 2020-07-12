@@ -5,17 +5,34 @@
     setTimeout(() => {
         document.getElementById("location").value = "123 Smith St, Smallville";
         document.getElementById("locationLoading").style.display = "none";
-    }, 2000)
+    }, 4000)
 </script>
+<style>
+    .loader {
+        border: 16px solid #151722; /* Light grey */
+        border-top: 16px solid #FF9D00; /* Blue */
+        border-radius: 50%;
+        width: 240px;
+        height: 240px;
+        animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
 <div id="loading">
     <div id="loadingGraphic" class="loader" style="display: block;"></div>
-    <div>We're looking for the nearest expert</div>
-
+    <div>We're looking for the nearest expert. Please wait a moment</div>
 </div>
 
 
 <div id="displayText">
     <h1>Thank you for reporting!</h1>
+    <p>We've sent Dr. John Smith, an expert with 12 years of experience in Quokkas.</p>
+    <p>He should be arriving in 20mins.</p>
 </div>
 
 {% endblock %}
