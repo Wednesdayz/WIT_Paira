@@ -172,7 +172,7 @@ def add_guide():
 def get_expert():
     return render_template("gettingExpert.html")
 
-@app.route('gotExpert', methods=['GET'])
+@app.route('/gotExpert', methods=['GET'])
 def got_expert():
     return render_template("gotExpert.html")
 
