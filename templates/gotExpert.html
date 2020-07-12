@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<style>
+    .loader {
+        border: 16px solid #151722; /* Light grey */
+        border-top: 16px solid #FF9D00; /* Blue */
+        border-radius: 50%;
+        width: 240px;
+        height: 240px;
+        animation: spin 2s linear infinite;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
+<div id="loading" style="text-align: center;">
+    <h2>We're looking for the nearest expert. Please wait a moment</h2>
+    <div id="loadingGraphic" class="loader"></div>
+
+</div>
+
+
+<div id="displayText" style="display: none;">
+    <h1>Thank you for reporting!</h1>
+    <p>We've sent Dr. John Smith, an expert with 12 years of experience in Quokkas.</p>
+    <p>He should be arriving in 20mins.</p>
+</div>
+<script>
+    
+    function chnagePage() {
+        setTimeout(() => {
+            document.getElementById("locationLoading").style.display = "none";
+            document.getElementById("displayText").style.dispaly="block";
+        }, 1000)
+    }
+
+
+</script>
+
+{% endblock %}
