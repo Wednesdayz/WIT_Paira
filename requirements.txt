@@ -107,7 +107,7 @@ py-bcrypt==0.4
 pyasn1==0.4.8
 pycosat==0.6.3
 pyEX==0.1.16
-Pygments==2.6.1
+Pygments==2.7.4
 PyInstaller==3.4
 pylint==2.3.1
 pylint-flask==0.6
