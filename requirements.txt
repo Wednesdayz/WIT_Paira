@@ -102,7 +102,7 @@ psycopg2==2.8.3
 psycopg2-binary==2.8.4
 psycopg2-pool==1.1
 ptyprocess==0.6.0
-py==1.8.0
+py==1.10.0
 py-bcrypt==0.4
 pyasn1==0.4.8
 pycosat==0.6.3
