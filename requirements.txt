@@ -22,7 +22,7 @@ cloudpickle==0.5.3
 colorama==0.4.3
 conda==4.3.16
 cycler==0.10.0
-dask==0.18.2
+dask==2021.10.0
 decorator==4.3.0
 Deprecated==1.2.7
 deprecation==2.0.7
